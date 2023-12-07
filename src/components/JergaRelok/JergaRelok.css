@@ -1,0 +1,16 @@
+.jergaRelokContainer {
+  width: fit-content;
+  margin: auto;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.jerga {
+  width: fit-content;
+  margin: auto;
+  /* // margin: 5em; */
+  margin-bottom: 2em;
+  /* border: solid white .1em; */
+}

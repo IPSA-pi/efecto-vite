@@ -1,0 +1,13 @@
+.cell {
+  width: 2em;
+  height: 2em;
+}
+
+/* background-color: `${props.className.split(' ').includes('cero') ? 'white' : 'black'}`, */
+.cero {
+  background-color: white;
+}
+
+.uno {
+  background-color: black;
+}

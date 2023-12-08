@@ -1,31 +1,37 @@
+import { stringToBinaryArray } from './stringToBinaryArray';
+
 const binaryTime = (time, timeFormat) => {
-  let hour, minutes, seconds, milliseconds;
-  let hilo, hiloB;
-  let timeArray, formatTime;
+  const [hour, minutes, seconds, milliseconds] = [
+    time.getHours(), 
+    time.getMinutes(), 
+    time.getSeconds(), 
+    time.getMilliseconds()
+  ];
 
-  [hour, minutes, seconds, milliseconds] = [time.getHours(), time.getMinutes(), time.getSeconds(), time.getMilliseconds()];
-  timeArray = [hour,minutes,seconds];
-  formatTime = timeArray.map(num => num.toString().padStart(2, '0')).join('').toString();
-
-
+  // format time so that digits under 10 get a 0 at the beginning 
+  let formatTime = (timeFormat === 'ms')
+    ? time.getTime().toString()
+    : [
+        hour.toString().padStart(2, '0'), 
+        minutes.toString().padStart(2, '0'), 
+        seconds.toString().padStart(2, '0')
+      ].join('') + (timeFormat === 'hmsm' ? milliseconds.toString().padStart(3, '0') : '');
+  
+  const binaryRepresentation = stringToBinaryArray(formatTime, 4);
+  
   switch (timeFormat) {
     case 'ms':
-      hilo = time.getTime().toString();
-      hiloB = hilo.split('').map(char => char.charCodeAt().toString(2).slice(2));
-      // console.log(hilo);
-      return hiloB;
-
-    case 'hmsm':      
-      hilo = formatTime + (milliseconds.toString().padStart(3, '0'));
-      hiloB = hilo.split('').map(char => char.charCodeAt().toString(2).slice(2));
-      console.log(hilo);
-      return hiloB;
+    case 'hmsm':
+      return binaryRepresentation;
 
     case 'hms':  
-      return formatTime.split('').map(char => char.charCodeAt().toString(2).slice(2));
+      return binaryRepresentation;
+
+    case 'hm':  
+      return binaryRepresentation.slice(0, -2);
 
     default:
-      throw new Error('specify time format');
+      throw new Error('Invalid time format');
   }
 }; 
 

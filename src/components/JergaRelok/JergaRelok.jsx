@@ -7,7 +7,10 @@ function JergaRelok() {
   
   // controls
   const refreshInterval = 1000;  
-  const [timeFormat, setTimeFormat] = useState('ms');  
+
+  // time format state
+  const [timeFormat, setTimeFormat] = useState('hm');  
+  // current time state
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -27,6 +30,9 @@ function JergaRelok() {
         setTimeFormat('hms');
         break;
       case 'hms':
+        setTimeFormat('hm');
+        break;
+      case 'hm':
         setTimeFormat('ms');
         break;
       default:
@@ -36,7 +42,6 @@ function JergaRelok() {
 
   return(
     <div className="jergaRelokContainer" >
-      {/* <Button text='Toggle Time Format' onClick={toggleTimeFormat} /> */}
       <div className="jerga"  onClick={toggleTimeFormat}>
         {
           binaryTime(time, timeFormat).map((bString, index) => <Row key={index} className={index} value={bString}/>)

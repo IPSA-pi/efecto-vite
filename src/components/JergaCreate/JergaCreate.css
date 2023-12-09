@@ -8,7 +8,7 @@ textarea {
   outline: none;
   box-shadow: none;
   resize: none;
-  width: 50%;
+  min-width: 16em;
   margin-bottom: 1em;
   padding: .2em 0 .2em .3em;
   text-wrap: nowrap;

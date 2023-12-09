@@ -1,5 +1,7 @@
 import {useState, useEffect } from 'react';
+import { useTimeFormat } from './hooks/useTimeFormat'
 import {binaryTime} from '../../utils/binaryTime';
+import JergaDisplay from '../JergaDisplay/JergaDisplay'
 import Row from './Row';
 import './JergaRelok.css';
 
@@ -9,7 +11,7 @@ function JergaRelok() {
   const refreshInterval = 1000;  
 
   // time format state
-  const [timeFormat, setTimeFormat] = useState('hm');  
+  const [timeFormat, toggleTimeFormat] = useTimeFormat();  
   // current time state
   const [time, setTime] = useState(new Date());
 
@@ -19,33 +21,14 @@ function JergaRelok() {
     }
     const interval = setInterval(updateTime, refreshInterval);
     return () => clearInterval(interval);
-  }, []);
+  }, []);  
 
-  const toggleTimeFormat = () => {
-    switch (timeFormat) {
-      case 'ms':
-        setTimeFormat('hmsm');
-        break;
-      case 'hmsm':
-        setTimeFormat('hms');
-        break;
-      case 'hms':
-        setTimeFormat('hm');
-        break;
-      case 'hm':
-        setTimeFormat('ms');
-        break;
-      default:
-        throw new Error('Unknown time format');
-    }
-  };
+  const binaryStr = binaryTime(time, timeFormat);
 
   return(
     <div className="jergaRelokContainer" >
       <div className="jerga"  onClick={toggleTimeFormat}>
-        {
-          binaryTime(time, timeFormat).map((bString, index) => <Row key={index} className={index} value={bString}/>)
-        }
+        <JergaDisplay hilo={binaryStr} slice='4'/>
       </div>
     </div>
   );

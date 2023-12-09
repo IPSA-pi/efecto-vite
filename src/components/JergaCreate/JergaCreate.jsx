@@ -21,7 +21,7 @@ function CreateJerga() {
         onChange={handleHiloChange}
         />
       <div className="jerga-container">
-        <JergaDisplay hilo={hilo}/>
+        <JergaDisplay hilo={hilo} slice='0'/>
       </div>
     </div>
   );

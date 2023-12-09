@@ -1,5 +1,3 @@
-import { stringToBinaryArray } from './stringToBinaryArray';
-
 const binaryTime = (time, timeFormat) => {
   const [hour, minutes, seconds, milliseconds] = [
     time.getHours(), 
@@ -16,19 +14,17 @@ const binaryTime = (time, timeFormat) => {
         minutes.toString().padStart(2, '0'), 
         seconds.toString().padStart(2, '0')
       ].join('') + (timeFormat === 'hmsm' ? milliseconds.toString().padStart(3, '0') : '');
-  
-  const binaryRepresentation = stringToBinaryArray(formatTime, 4);
-  
+    
   switch (timeFormat) {
     case 'ms':
     case 'hmsm':
-      return binaryRepresentation;
+      return formatTime;
 
     case 'hms':  
-      return binaryRepresentation;
+      return formatTime;
 
     case 'hm':  
-      return binaryRepresentation.slice(0, -2);
+      return formatTime.slice(0,-2);
 
     default:
       throw new Error('Invalid time format');

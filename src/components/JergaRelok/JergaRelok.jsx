@@ -1,28 +1,18 @@
-import {useState, useEffect } from 'react';
-import { useTimeFormat } from './hooks/useTimeFormat'
+import { useTimeFormat} from './hooks/useTimeFormat'
+import { useUpdateTime } from './hooks/useUpdateTime'
 import {binaryTime} from '../../utils/binaryTime';
 import JergaDisplay from '../JergaDisplay/JergaDisplay'
-import Row from './Row';
 import './JergaRelok.css';
 
 function JergaRelok() {
-  
-  // controls
   const refreshInterval = 1000;  
 
   // time format state
   const [timeFormat, toggleTimeFormat] = useTimeFormat();  
   // current time state
-  const [time, setTime] = useState(new Date());
+  const time = useUpdateTime(refreshInterval);
 
-  useEffect(() => {
-    function updateTime() {
-      setTime(new Date());
-    }
-    const interval = setInterval(updateTime, refreshInterval);
-    return () => clearInterval(interval);
-  }, []);  
-
+  // get time string with specified format
   const binaryStr = binaryTime(time, timeFormat);
 
   return(

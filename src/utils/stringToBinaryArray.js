@@ -1,5 +1,3 @@
-// JSDoc
-
 /** 
  * Returns an array of binary numbers where each item is the binary representation of a character in the provided string. Each binary number is padded to ensure it has 8 digits.
  * 
@@ -8,16 +6,6 @@
  * @returns {string[]} An array of binary strings, each representing a character from the input string.
  */
 
-        // My solution
-// const string2b = (hilo) => {
-//   return hilo.split('')
-//     .map(char => char
-//       .charCodeAt()
-//       .toString(2)
-//       .padStart(8,0))
-// }
-
-      // ChatGPT
 function stringToBinaryArray(hilo, slice) {
   const binaryArray = [];
   for (let i = 0; i < hilo.length; i++) {

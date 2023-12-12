@@ -9,6 +9,8 @@ import JergaCreate from './components/JergaCreate/JergaCreate'
 import JergaRelok from './components/JergaRelok/JergaRelok'
 import About from './components/About'
 import ThreeJSTest from './components/ThreeTest/ThreeJStest'
+import ThreePsykodelik from './components/ThreeTest/ThreePsykodelik'
+import ThreeFraktal from './components/ThreeTest/ThreeFraktal'
 import './App.css'
 
 function App() {
@@ -33,6 +35,8 @@ function App() {
       </footer>
     </Router>
     <ThreeJSTest />
+    <ThreePsykodelik />
+    <ThreeFraktal />
     </>
     
   )

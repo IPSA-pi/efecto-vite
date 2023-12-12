@@ -5,12 +5,12 @@ import JergaDisplay from '../JergaDisplay/JergaDisplay'
 import './JergaRelok.css';
 
 function JergaRelok() {
-  const refreshInterval = 1000;  
 
   // time format state
   const [timeFormat, toggleTimeFormat] = useTimeFormat();  
+
   // current time state
-  const time = useUpdateTime(refreshInterval);
+  const time = useUpdateTime();
 
   // get time string with specified format
   const binaryStr = binaryTime(time, timeFormat);

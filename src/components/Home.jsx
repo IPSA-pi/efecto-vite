@@ -1,6 +1,10 @@
+import { useUpdateTime } from './JergaRelok/hooks/useUpdateTime';
+
 function Home() {
+  const time = useUpdateTime();
+
   return(
-    <div>Home</div>
+    <div>{time.getTime()}</div>
   );
 }
 

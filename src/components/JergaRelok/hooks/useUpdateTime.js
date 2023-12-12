@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export const useUpdateTime = () => {
-  const refreshInterval = 1000;  
+  const refreshInterval = 1;  
 
   const [time, setTime] = useState(new Date());
 

@@ -13,7 +13,7 @@ function ThreeJSTest() {
     mountRef.current.appendChild(renderer.domElement);
 
     const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+    const material = new THREE.MeshBasicMaterial({color: 0x22ffaa});
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
 

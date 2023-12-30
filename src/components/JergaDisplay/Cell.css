@@ -4,9 +4,9 @@
 }
   
 .cero {
-  background-color: white;
+  background-color: var(--color-secondary);
 }
 
 .uno {
-  background-color: black;
+  background-color: var(--color-primary);
 }

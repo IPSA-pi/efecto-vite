@@ -8,15 +8,11 @@ import Home from './components/Home'
 import JergaCreate from './components/JergaCreate/JergaCreate'
 import JergaRelok from './components/JergaRelok/JergaRelok'
 import About from './components/About'
-import ThreeJSTest from './components/ThreeTest/ThreeJStest'
-import ThreePsykodelik from './components/ThreeTest/ThreePsykodelik'
-import ThreeFraktal from './components/ThreeTest/ThreeFraktal'
 import './App.css'
 
 function App() {
   const footerLink = 'efectotv.net'
   return (
-    <>
     <Router>
       <nav>
         <Link to="/">Raíz</Link>
@@ -34,10 +30,6 @@ function App() {
         <a href={footerLink}>efectotv 2023</a>
       </footer>
     </Router>
-    <ThreeJSTest />
-    <ThreePsykodelik />
-    <ThreeFraktal />
-    </>
     
   )
 }

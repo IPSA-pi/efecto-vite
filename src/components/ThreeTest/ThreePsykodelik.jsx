@@ -75,6 +75,6 @@ function ThreePsykodelik() {
   }, []);
 
   return <div ref={mountRef}></div>;
-};
+}
 
 export default ThreePsykodelik;

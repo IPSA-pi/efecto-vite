@@ -1,10 +1,16 @@
 import { useUpdateTime } from './JergaRelok/hooks/useUpdateTime';
+import '../styles/global.css'
 
 function Home() {
   const time = useUpdateTime();
+  const epochStyle = {
+    textAlign: 'center',
+    fontSize: 'var(--font-size-x-large)',
+    overflow: 'auto',
+  }
 
   return(
-    <div>{time.getTime()}</div>
+    <div style={epochStyle}>{time.getTime()}</div>
   );
 }
 

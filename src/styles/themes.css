@@ -1,0 +1,13 @@
+:root {
+  /* Dark theme */
+  --color-bg: #fff;
+  --color-primary:      #fff;
+  --color-secondary:    #000;
+  --color-highlight: #09ff00;
+}
+
+[data-theme="dark"] {
+  --color-bg: #000;
+  --color-primary:      #000;
+  --color-secondary:    #fff;
+}

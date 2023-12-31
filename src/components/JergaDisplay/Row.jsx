@@ -1,4 +1,5 @@
 import Cell from './Cell';
+import PropTypes from 'prop-types';
 
 function Row(props) {
   const bString = props.value;
@@ -26,6 +27,11 @@ function Row(props) {
       } 
     </div>
   );
+}
+
+Row.propTypes = {
+  value: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
 }
 
 export default Row;

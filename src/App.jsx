@@ -1,16 +1,23 @@
+// ROUTER
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Link
 } from 'react-router-dom';
+
+// CONTEXT
 import {useContext} from 'react';
 import {ThemeContext} from './contexts/ThemeContext'
+
+// COMPONENTS
 import Home from './components/Home'
 import JergaCreate from './components/JergaCreate/JergaCreate'
 import JergaRelok from './components/JergaRelok/JergaRelok'
 // import About from './components/About'
 import Login from './components/Login/Login'
+
+// STYLES
 import './App.css'
 import './styles/global.css'
 import './styles/themes.css'
@@ -36,7 +43,7 @@ function App() {
         {/* <Route path="/about" element={<About/>} /> */}
       </Routes>
       <footer>
-        <a href={footerLink}>efectotv 2023</a>
+        <a href={footerLink}>efectotv 2024</a>
         <button onClick={toggleTheme}>Toggle Theme</button>
       </footer>
     </Router>

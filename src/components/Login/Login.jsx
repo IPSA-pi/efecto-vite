@@ -1,38 +1,40 @@
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
 import netlifyIdentity from 'netlify-identity-widget';
+import { UserContext } from '../../contexts/UserContext'
 
 const Login = () => {
-  const [user, setUser] = useState(netlifyIdentity.currentUser());
+  const { user, setUser } = useContext(UserContext);
 
-  useEffect(() => {
+  const handleLogin = () => {
+    netlifyIdentity.open('login');
     netlifyIdentity.on('login', user => setUser(user));
-    netlifyIdentity.on('logout', () => setUser(null));
+  };
 
-    return () => {
-      netlifyIdentity.off('login');
-      netlifyIdentity.off('logout');
-    };
-  }, []);
+  const handleSignup = () => {
+    netlifyIdentity.open('signup');
+    netlifyIdentity.on('login', user => setUser(user));
+  };
 
-  const login = () => netlifyIdentity.open('login');
-  const signup = () => netlifyIdentity.open('signup');
-  const logout = () => netlifyIdentity.logout();
-
-  if (user) {
-    return (
-      <div>
-        <p>Welcome, {user.email}</p>
-        <button onClick={logout}>Logout</button>
-      </div>
-    );
-  }
+  const handleLogout = () => {
+    netlifyIdentity.logout();
+    setUser(null);
+  };
 
   return (
     <div>
-      <button onClick={login}>Login</button>
-      <button onClick={signup}>Sign Up</button>
+      {user ? (
+        <div>
+          <p>Welcome, {user.email}</p>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      ) : (
+        <div>
+          <button onClick={handleLogin}>Login</button>
+          <button onClick={handleSignup}>Sign Up</button>
+        </div>
+      )}
     </div>
-  );  
+  );
 };
 
 export default Login;

@@ -4,8 +4,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import netlifyIdentity from 'netlify-identity-widget';
-import {useContext, useEffect} from 'react';
+import {useContext} from 'react';
 import {ThemeContext} from './contexts/ThemeContext'
 import Home from './components/Home'
 import JergaCreate from './components/JergaCreate/JergaCreate'
@@ -20,9 +19,6 @@ function App() {
   const footerLink = 'https://www.efectotv.net'
   const { toggleTheme } = useContext(ThemeContext); 
 
-  useEffect(() => {
-    netlifyIdentity.init();
-  }, []);
   
   return (
     <Router>

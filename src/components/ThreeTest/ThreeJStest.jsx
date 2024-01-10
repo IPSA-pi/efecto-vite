@@ -48,6 +48,6 @@ function ThreeJSTest() {
   }, []);
 
   return <div ref={mountRef}></div>;
-};
+}
 
 export default ThreeJSTest;

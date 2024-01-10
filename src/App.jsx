@@ -25,7 +25,6 @@ import './styles/themes.css'
 function App() {
   const footerLink = 'https://www.efectotv.net'
   const { toggleTheme } = useContext(ThemeContext); 
-
   
   return (
     <Router>
@@ -33,7 +32,6 @@ function App() {
         <Link to="/">Raíz</Link>
         <Link to="/jergaCreate">JergaCreate</Link>
         <Link to="/jergaRelok">JergaRelok</Link>
-        <Login />
         {/* <Link to="/about">AcercaDe</Link> */}
       </nav>
       <Routes>
@@ -43,8 +41,9 @@ function App() {
         {/* <Route path="/about" element={<About/>} /> */}
       </Routes>
       <footer>
-        <a href={footerLink}>efectotv 2024</a>
+        {/* <a href={footerLink}>efectotv 2024</a> */}
         <button onClick={toggleTheme}>Toggle Theme</button>
+        <Login />
       </footer>
     </Router>
   );

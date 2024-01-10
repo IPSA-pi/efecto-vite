@@ -1,10 +1,13 @@
-import {useState} from 'react';
+import {useState, useContext} from 'react';
+import { UserContext } from '../../contexts/UserContext'
 import JergaDisplay from '../JergaDisplay/JergaDisplay';
 import './JergaCreate.css';
 
 function CreateJerga() {
 
-  const [hilo, setHilo] = useState("EFECTOTV")
+  const [hilo, setHilo] = useState("EFECTOTV");
+
+  const { user, setUser } = useContext(UserContext);
 
   const handleHiloChange = (event) => {
     setHilo(event.target.value);
@@ -23,6 +26,8 @@ function CreateJerga() {
       <div className="jerga-container">
         <JergaDisplay hilo={hilo} slice='0'/>
       </div>
+
+      {/* {user ? (<div>logged in</div>) : (<div>not logged in</div>)} */}
     </div>
   );
 }

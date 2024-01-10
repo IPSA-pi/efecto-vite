@@ -20,11 +20,13 @@ const Login = () => {
     setUser(null);
   };
 
+  console.log(user);
+
   return (
     <div>
       {user ? (
         <div>
-          <p>Welcome, {user.email}</p>
+          <p>Welcome, {user.user_metadata.full_name}</p>
           <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (

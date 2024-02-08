@@ -15,6 +15,7 @@ import {useContext, useEffect, } from 'react';
 import {ThemeContext} from './contexts/ThemeContext'
 
 // COMPONENTS
+import RouterWrapper from './components/RouterWrapper'
 import Home from './components/Home'
 import JergaCreate from './components/JergaCreate/JergaCreate'
 import JergaRelok from './components/JergaRelok/JergaRelok'
@@ -29,17 +30,7 @@ import './styles/themes.css'
 
 function App() {
   const { theme, toggleTheme } = useContext(ThemeContext); 
-  const location = useLocation();
-
-  useEffect(() => {
-    initGA();
-    logPageView();
-  }, []);
-
-  useEffect(() => {
-    logPageView();
-  }, [location.pathname]);
-
+  
   return (
     <Router>
       <nav>
@@ -48,12 +39,7 @@ function App() {
         <Link to="/jergaRelok">JergaRelok</Link>
         {/* <Link to="/about">AcercaDe</Link> */}
       </nav>
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/jergaCreate" element={<JergaCreate/>} />
-        <Route path="/jergaRelok" element={<JergaRelok/>} />
-        {/* <Route path="/about" element={<About/>} /> */}
-      </Routes>
+      <RouterWrapper />
       <footer>
         <Button text={theme === 'dark' ? '🌒︎' : '🌖︎'} onClick={toggleTheme} />
         <Login />

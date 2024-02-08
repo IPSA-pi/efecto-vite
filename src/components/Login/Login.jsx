@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import netlifyIdentity from 'netlify-identity-widget';
-import { UserContext } from '../../contexts/UserContext'
+import { UserContext } from '../../contexts/UserContext';
+import Button from '../UI/Button';
 
 const Login = () => {
   const { user, setUser } = useContext(UserContext);
@@ -27,12 +28,12 @@ const Login = () => {
       {user ? (
         <div>
           <p>Welcome, {user.user_metadata.full_name}</p>
-          <button onClick={handleLogout}>Logout</button>
+          <Button text='Logout' onClick={handleLogout}/>
         </div>
       ) : (
         <div>
-          <button onClick={handleLogin}>Login</button>
-          <button onClick={handleSignup}>Sign Up</button>
+          <Button text='Login' onClick={handleLogin}/>
+          <Button text='Sign Up' onClick={handleSignup}/>
         </div>
       )}
     </div>

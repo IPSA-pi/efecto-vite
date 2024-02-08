@@ -1,10 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import './index.css';
 import netlifyIdentity from 'netlify-identity-widget';
-import { ThemeProvider } from './contexts/ThemeContext'
-import { UserProvider } from './contexts/UserContext'
+import './firebase/firebase-init';
+import { ThemeProvider } from './contexts/ThemeContext';
+import { UserProvider } from './contexts/UserContext';
 
 netlifyIdentity.init();
 

@@ -3,11 +3,15 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
+  Link,
+  useLocation
 } from 'react-router-dom';
 
+// Analytics
+import { initGA, logPageView } from './analytics';
+
 // CONTEXT
-import {useContext} from 'react';
+import {useContext, useEffect, } from 'react';
 import {ThemeContext} from './contexts/ThemeContext'
 
 // COMPONENTS
@@ -16,6 +20,7 @@ import JergaCreate from './components/JergaCreate/JergaCreate'
 import JergaRelok from './components/JergaRelok/JergaRelok'
 // import About from './components/About'
 import Login from './components/Login/Login'
+import Button from './components/UI/Button';
 
 // STYLES
 import './App.css'
@@ -23,9 +28,18 @@ import './styles/global.css'
 import './styles/themes.css'
 
 function App() {
-  const footerLink = 'https://www.efectotv.net'
-  const { toggleTheme } = useContext(ThemeContext); 
-  
+  const { theme, toggleTheme } = useContext(ThemeContext); 
+  const location = useLocation();
+
+  useEffect(() => {
+    initGA();
+    logPageView();
+  }, []);
+
+  useEffect(() => {
+    logPageView();
+  }, [location.pathname]);
+
   return (
     <Router>
       <nav>
@@ -41,8 +55,7 @@ function App() {
         {/* <Route path="/about" element={<About/>} /> */}
       </Routes>
       <footer>
-        {/* <a href={footerLink}>efectotv 2024</a> */}
-        <button onClick={toggleTheme}>Toggle Theme</button>
+        <Button text={theme === 'dark' ? '🌒︎' : '🌖︎'} onClick={toggleTheme} />
         <Login />
       </footer>
     </Router>

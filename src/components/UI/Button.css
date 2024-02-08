@@ -1,0 +1,6 @@
+button {
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+  border: 2px solid  var(--color-secondary);
+  margin: 1rem;
+}

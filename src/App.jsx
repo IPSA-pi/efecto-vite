@@ -1,25 +1,17 @@
 // ROUTER
 import {
   BrowserRouter as Router,
-  Routes,
-  Route,
   Link,
-  useLocation
 } from 'react-router-dom';
 
 // Analytics
-import { initGA, logPageView } from './analytics';
 
 // CONTEXT
-import {useContext, useEffect, } from 'react';
+import {useContext} from 'react';
 import {ThemeContext} from './contexts/ThemeContext'
 
 // COMPONENTS
 import RouterWrapper from './components/RouterWrapper'
-import Home from './components/Home'
-import JergaCreate from './components/JergaCreate/JergaCreate'
-import JergaRelok from './components/JergaRelok/JergaRelok'
-// import About from './components/About'
 import Login from './components/Login/Login'
 import Button from './components/UI/Button';
 
@@ -37,7 +29,7 @@ function App() {
         <Link to="/">Raíz</Link>
         <Link to="/jergaCreate">JergaCreate</Link>
         <Link to="/jergaRelok">JergaRelok</Link>
-        {/* <Link to="/about">AcercaDe</Link> */}
+        <Link to="/emojiHaiku">EmojiHaiku</Link>
       </nav>
       <RouterWrapper />
       <footer>

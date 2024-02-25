@@ -5,6 +5,7 @@ import { initGA, logPageView } from '../analytics';
 import Home from './Home';
 import JergaCreate from './JergaCreate/JergaCreate';
 import JergaRelok from './JergaRelok/JergaRelok';
+import EmojiHaiku from './Emojis/Emojis';
 
 const RouterWrapper = () => {
   const location = useLocation();
@@ -23,6 +24,7 @@ const RouterWrapper = () => {
       <Route path="/" element={<Home />} />
       <Route path="/jergaCreate" element={<JergaCreate />} />
       <Route path="/jergaRelok" element={<JergaRelok />} />
+      <Route path="/emojiHaiku" element={<EmojiHaiku/>} />
       {/* Other routes */}
     </Routes>
   );

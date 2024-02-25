@@ -1,0 +1,10 @@
+div.emojiWrapper {
+  width: 30vw;
+  margin: auto;
+}
+
+div#haikuEmoji {
+  font-size: var(--font-size-x-large);
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}

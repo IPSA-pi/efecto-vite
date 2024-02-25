@@ -1,4 +1,5 @@
 button {
+  border-radius: 1rem;
   color: var(--color-secondary);
   background-color: var(--color-primary);
   border: 2px solid  var(--color-secondary);

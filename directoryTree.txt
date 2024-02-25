@@ -1,0 +1,62 @@
+efectoApp-vite
+├── .env.local
+├── .eslintrc.cjs
+├── .gitignore
+├── README.md
+├── directoryTree.txt
+├── generateTree.js
+├── index.html
+├── notas.md
+├── package-lock.json
+├── package.json
+├── public
+|   ├── _redirects
+|   └── cloud.svg
+├── src
+|   ├── App.css
+|   ├── App.jsx
+|   ├── analytics.js
+|   ├── assets
+|   |   └── react.svg
+|   ├── components
+|   |   ├── About.jsx
+|   |   ├── Home.jsx
+|   |   ├── Jerga.jsx
+|   |   ├── JergaCreate
+|   |   |   ├── JergaCreate.css
+|   |   |   └── JergaCreate.jsx
+|   |   ├── JergaDisplay
+|   |   |   ├── Cell.css
+|   |   |   ├── Cell.jsx
+|   |   |   ├── JergaDisplay.jsx
+|   |   |   └── Row.jsx
+|   |   ├── JergaRelok
+|   |   |   ├── JergaRelok.css
+|   |   |   ├── JergaRelok.jsx
+|   |   |   └── hooks
+|   |   |       ├── useTimeFormat.js
+|   |   |       └── useUpdateTime.js
+|   |   ├── Login
+|   |   |   └── Login.jsx
+|   |   ├── RouterWrapper.jsx
+|   |   ├── ThreeTest
+|   |   |   ├── ThreeFraktal.jsx
+|   |   |   ├── ThreeJStest.jsx
+|   |   |   └── ThreePsykodelik.jsx
+|   |   └── UI
+|   |       ├── Button.css
+|   |       └── Button.jsx
+|   ├── contexts
+|   |   ├── ThemeContext.jsx
+|   |   └── UserContext.jsx
+|   ├── firebase
+|   |   └── firebase-init.js
+|   ├── index.css
+|   ├── main.jsx
+|   ├── styles
+|   |   ├── global.css
+|   |   └── themes.css
+|   └── utils
+|       ├── binaryTime.js
+|       └── stringToBinaryArray.js
+└── vite.config.js

@@ -10,7 +10,8 @@ function Home() {
   }
 
   return(
-    <div style={epochStyle}>{time.getTime()}</div>
+    // <div style={epochStyle}>{time.getTime()}</div>
+    <div></div>
   );
 }
 

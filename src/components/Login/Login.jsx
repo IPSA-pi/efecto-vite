@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import netlifyIdentity from 'netlify-identity-widget';
 import { UserContext } from '../../contexts/UserContext';
 import Button from '../UI/Button';
+import './Login.css'
 
 const Login = () => {
   const { user, setUser } = useContext(UserContext);
@@ -24,19 +25,19 @@ const Login = () => {
   console.log(user);
 
   return (
-    <div>
+    <>
       {user ? (
-        <div>
-          <p>Welcome, {user.user_metadata.full_name}</p>
+        <div className='userUI'>
+          <p>{user.user_metadata.full_name}</p>
           <Button text='Logout' onClick={handleLogout}/>
         </div>
       ) : (
-        <div>
+        <div className='userUI'>
           <Button text='Login' onClick={handleLogin}/>
           <Button text='Sign Up' onClick={handleSignup}/>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

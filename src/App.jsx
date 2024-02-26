@@ -25,17 +25,17 @@ function App() {
   
   return (
     <Router>
+      <header>
+        <Button text={theme === 'dark' ? '🌒︎' : '🌖︎'} onClick={toggleTheme} />
+        <Login />
+      </header>
+      <RouterWrapper />
       <nav>
         <Link to="/">Raíz</Link>
         <Link to="/jergaCreate">JergaCreate</Link>
         <Link to="/jergaRelok">JergaRelok</Link>
         <Link to="/emojiHaiku">EmojiHaiku</Link>
       </nav>
-      <RouterWrapper />
-      <footer>
-        <Button text={theme === 'dark' ? '🌒︎' : '🌖︎'} onClick={toggleTheme} />
-        <Login />
-      </footer>
     </Router>
   );
 }

@@ -1,5 +1,6 @@
 .jergaRelokContainer {
   width: fit-content;
+  height: 100%;
   margin: auto;
   color: white;
   text-align: center;
@@ -12,6 +13,6 @@
   margin: auto;
   /* // margin: 5em; */
   margin-bottom: 2em;
-  /* border: solid white .1em; */
+  border: solid var(--color-secondary) .1em;
   color: transparent;
 }

@@ -20,6 +20,7 @@ function CreateJerga() {
         rows="1" 
         value={hilo}
         onChange={handleHiloChange}
+        maxLength='12'
         />
       <div className="jerga-container">
         <JergaDisplay hilo={hilo} slice='0'/>

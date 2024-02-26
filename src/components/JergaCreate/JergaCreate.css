@@ -9,7 +9,7 @@ textarea {
   box-shadow: none;
   resize: none;
   min-width: 16em;
-  margin-bottom: 1em;
+  margin: 1em;
   padding: .2em 0 .2em .3em;
   text-wrap: nowrap;
   text-align: left;

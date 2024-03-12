@@ -7,7 +7,7 @@ import {
 // Analytics
 
 // CONTEXT
-import {useContext} from 'react';
+import { useState, useContext} from 'react';
 import {ThemeContext} from './contexts/ThemeContext'
 
 // COMPONENTS
@@ -21,21 +21,27 @@ import './styles/global.css'
 import './styles/themes.css'
 
 function App() {
-  const { theme, toggleTheme } = useContext(ThemeContext); 
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  
+  const [ navbarVisible, setNavbarVisible] = useState(false);
+  const toggleNavbar = () => setNavbarVisible(!navbarVisible);
   
   return (
     <Router>
       <header>
         <Button text={theme === 'dark' ? '🌒︎' : '🌖︎'} onClick={toggleTheme} />
+        <Button text='☰' onClick={toggleNavbar}/>
         <Login />
       </header>
       <RouterWrapper />
-      <nav>
-        <Link to="/">Raíz</Link>
-        <Link to="/jergaCreate">JergaCreate</Link>
-        <Link to="/jergaRelok">JergaRelok</Link>
-        <Link to="/emojiHaiku">EmojiHaiku</Link>
-      </nav>
+      {navbarVisible && (
+        <nav>
+          <Link to="/">Raíz</Link>
+          <Link to="/jergaCreate">JergaCreate</Link>
+          <Link to="/jergaRelok">JergaRelok</Link>
+          <Link to="/emojiHaiku">EmojiHaiku</Link>
+        </nav>
+      )}
     </Router>
   );
 }

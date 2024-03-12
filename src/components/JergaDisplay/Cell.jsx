@@ -1,7 +1,7 @@
-import './Cell.css';
 import PropTypes from 'prop-types';
 
 function Cell(props) {
+  const cellStyle = {}
   return(
     <span className={props.className} ></span>
   );

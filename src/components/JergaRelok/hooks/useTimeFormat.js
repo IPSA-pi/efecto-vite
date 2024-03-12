@@ -1,10 +1,13 @@
 import { useState } from 'react';
 
-export function useTimeFormat(initialFormat = 'hm') {
+export function useTimeFormat(initialFormat = 'full') {
   const [timeFormat, setTimeFormat] = useState(initialFormat);
 
   const toggleTimeFormat = () => {
     switch (timeFormat) {
+      case 'full':
+        setTimeFormat('ms');
+        break;
       case 'ms':
         setTimeFormat('hmsm');
         break;
@@ -15,7 +18,7 @@ export function useTimeFormat(initialFormat = 'hm') {
         setTimeFormat('hm');
         break;
       case 'hm':
-        setTimeFormat('ms');
+        setTimeFormat('full');
         break;
       default:
         throw new Error('Unknown time format');

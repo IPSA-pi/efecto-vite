@@ -18,7 +18,7 @@ function JergaRelok() {
   return(
     <div className="jergaRelokContainer" >
       <div className="jerga"  onClick={toggleTimeFormat}>
-        <JergaDisplay hilo={binaryStr} slice='4'/>
+        <JergaDisplay hilo={binaryStr} slice='4' />
       </div>
     </div>
   );

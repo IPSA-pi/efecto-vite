@@ -12,7 +12,7 @@ function CreateJerga() {
   };
 
   return(
-    <div className="jerga-create">
+    <>
       <textarea
         name="userHilo" 
         id="userHilo" 
@@ -22,12 +22,14 @@ function CreateJerga() {
         onChange={handleHiloChange}
         maxLength='12'
         />
-      <div className="jerga-container">
-        <JergaDisplay hilo={hilo} slice='0'/>
-      </div>
+      <div className="jerga-create">
+        <div className="jerga-container">
+          <JergaDisplay hilo={hilo} slice='0'/>
+        </div>
 
-      {/* {user ? (<div>logged in</div>) : (<div>not logged in</div>)} */}
-    </div>
+        {/* {user ? (<div>logged in</div>) : (<div>not logged in</div>)} */}
+      </div>    
+    </>
   );
 }
 

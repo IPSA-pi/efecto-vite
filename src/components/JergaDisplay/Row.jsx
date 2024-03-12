@@ -4,13 +4,9 @@ import PropTypes from 'prop-types';
 function Row(props) {
   const bString = props.value;
   const rowClass = `row ${props.className}`;
-  const RowStyle = {
-    display: 'flex',
-    flexDirection: 'row'
-  };
 
   return (
-    <div className={rowClass} style={RowStyle}>
+    <div className={rowClass} >
       {
         bString
           .split('')

@@ -17,13 +17,41 @@ textarea {
 }
 
 .jerga-container {
-  color: transparent;
-  margin: auto;
-}
-
-.jerga-create {
   width: fit-content;
   margin: auto;
+  /* // margin: 5em; */
+  margin-bottom: 2em;
+  border: solid var(--color-secondary) .1em;
+  color: transparent;
+  display: flex;
+  flex-direction: column;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+}
 
+.cell {
+  display: block;
+  width: 2em;
+  height: 2em;
+  border-radius: 0%;
+}
+  
+.cero {
+  background-color: var(--color-secondary);
+}
+
+.uno {
+  background-color: var(--color-primary);
+}
+
+@media (orientation: portrait) {
+  .jerga {
+    flex-direction: row;
+  }
+  .row {
+    flex-direction: column;
+  }
+}

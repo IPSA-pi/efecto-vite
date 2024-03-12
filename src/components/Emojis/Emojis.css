@@ -5,6 +5,7 @@ div.emojiWrapper {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 
 div#haikuEmoji {
@@ -12,6 +13,9 @@ div#haikuEmoji {
   text-align: center;
   writing-mode: vertical-rl;
   text-orientation: upright;
+  filter: drop-shadow(3px 5px black );
+  filter: blur(1px);
+
 }
 
 div.buttons {

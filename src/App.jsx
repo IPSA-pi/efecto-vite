@@ -23,7 +23,7 @@ import './styles/themes.css'
 function App() {
   const { theme, toggleTheme } = useContext(ThemeContext);
   
-  const [ navbarVisible, setNavbarVisible] = useState(false);
+  const [ navbarVisible, setNavbarVisible] = useState(true);
   const toggleNavbar = () => setNavbarVisible(!navbarVisible);
   
   return (

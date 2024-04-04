@@ -1,10 +1,11 @@
 // P5Wrapper.js
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import p5 from 'p5';
 
 const style = {
   display: 'flex',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  overflow: 'hidden'
 }
 
 const P5Wrapper = ({ sketch }) => {
@@ -12,12 +13,15 @@ const P5Wrapper = ({ sketch }) => {
   const p5Instance = useRef(null);
 
   useEffect(() => {
-    // Initialize the p5 instance only once
-    if (!p5Instance.current) {
-      p5Instance.current = new p5(sketch, sketchRef.current);
+    // Check if the p5 instance is already initialized
+    if (p5Instance.current) {
+      console.log('p5 instance already exists');
+      return;
     }
 
-    // Cleanup function to remove the sketch on component unmount
+    console.log('Initializing p5 instance');
+    p5Instance.current = new p5(sketch, sketchRef.current);
+
     return () => {
       if (p5Instance.current) {
         p5Instance.current.remove();

@@ -4,4 +4,6 @@ div.home-wrapper {
   height: 100vh;
   z-index: -1;
   top: 0;
+  filter: drop-shadow(16px 16px 20px white);
+  /* overflow: hidden; */
 }

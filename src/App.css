@@ -34,8 +34,7 @@ a:hover {
 header { 
   display: flex;
   justify-content: space-between;
-  width: 90vw;
-  margin: 1rem 1rem 3rem 1rem;
+  padding: 1rem;
 }
 
 ::-webkit-scrollbar {

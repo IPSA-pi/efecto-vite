@@ -1,0 +1,35 @@
+.jerga-display-container {
+  width: fit-content;
+  margin: auto;
+  color: transparent;
+  display: flex;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+}
+
+.cell {
+  display: block;
+  width: 2em;
+  height: 2em;
+  border-radius: 0%;
+}
+  
+.cero {
+  background-color: var(--color-secondary);
+}
+
+.uno {
+  background-color: var(--color-primary);
+}
+
+@media (orientation: portrait) {
+  .jerga-display-container {
+    flex-direction: column;
+  }
+  .row {
+    flex-direction: row;
+  }
+}

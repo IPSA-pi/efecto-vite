@@ -3,11 +3,11 @@ import  { useState, useEffect } from 'react';
 const Dots = () => {
   const [grid, setGrid] = useState([]);
 
-  const initialGridValue = "("
+  const initialGridValue = "'"
 
   useEffect(() => {
-      const consoleWidth = Math.floor(window.innerWidth / 32); // Adjust character size as needed
-      const consoleHeight = Math.floor(window.innerHeight / 40); // Adjust character size as needed
+      const consoleWidth = Math.floor(window.innerWidth / 30); // Adjust character size as needed
+      const consoleHeight = Math.floor(window.innerHeight / 30); // Adjust character size as needed
 
       const initialGrid = Array.from({ length: consoleHeight }, () => Array(consoleWidth).fill(initialGridValue));
       setGrid(initialGrid);

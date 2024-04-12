@@ -30,18 +30,22 @@ function App() {
     <Router>
       <header>
         <Button text={theme === 'dark' ? '🌒︎' : '🌖︎'} onClick={toggleTheme} />
-        <Button text='☰' onClick={toggleNavbar}/>
         <Login />
       </header>
+      
       <RouterWrapper />
-      {navbarVisible && (
-        <nav>
-          <Link to="/">Raíz</Link>
-          <Link to="/jergaCreate">JergaCreate</Link>
-          <Link to="/jergaRelok">JergaRelok</Link>
-          <Link to="/emojiHaiku">EmojiHaiku</Link>
-        </nav>
-      )}
+      
+      <div className="navContainer">
+        {navbarVisible && (
+          <nav>
+            <Link to="/">Raíz</Link>
+            <Link to="/jergaCreate">JergaCreate</Link>
+            <Link to="/jergaRelok">JergaRelok</Link>
+            <Link to="/emojiHaiku">EmojiHaiku</Link>
+          </nav>
+        )}
+        <Button text='☰' onClick={toggleNavbar}/>
+      </div>
     </Router>
   );
 }

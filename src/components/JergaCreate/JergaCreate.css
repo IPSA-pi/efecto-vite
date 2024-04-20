@@ -1,8 +1,8 @@
 textarea {
   box-sizing: border-box;
   border: red 1px solid;
-  background-color: black;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
   overflow: hidden;
   box-shadow: none;
   resize: none;
@@ -20,9 +20,34 @@ textarea {
   width: fit-content;
   margin: auto;
   /* // margin: 5em; */
-  margin-bottom: 2em;
+  margin-top: 3em;
   /* border: solid var(--color-secondary) .1em; */
   color: transparent;
   display: flex;
   flex-direction: column;
+}
+
+@media (orientation: landscape) {
+
+  textarea{
+    min-width: 8em;
+    padding: 0;
+  }
+
+  .jerga-display-container {
+    flex-direction: column;
+  }
+
+  .jerga-container {
+    margin-top: 0;
+  }
+
+  .row {
+    flex-direction: row;
+  }
+
+  .cell {
+    width: 1.2em;
+    height: 1.2em;
+  }
 }

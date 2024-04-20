@@ -13,8 +13,8 @@ function CreateJerga() {
 
   return(
     <>
-
       <div className="jerga-container">
+        <label htmlFor="userHilo">Crea tu propia jerga:</label>
         <textarea
           name="userHilo" 
           id="userHilo" 

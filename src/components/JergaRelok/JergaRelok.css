@@ -4,5 +4,33 @@
   margin: auto;
   color: white;
   text-align: center;
-  filter: blur(13px);
+  filter: blur(15px);
+  margin-top: 2rem;
+}
+
+.cell {
+  width: 5vh;
+  height: 5vh;
+  /* border-radius: 50%; */
+}
+
+div.hmsm {
+  .cell {
+    width: 6vh;
+    height: 6vh;
+  }
+}
+
+div.hms {
+  .cell {
+    width: 9vh;
+    height: 9vh;
+  }
+}
+
+div.hm {
+  .cell {
+    width: 11vh;
+    height: 11vh;
+  }
 }

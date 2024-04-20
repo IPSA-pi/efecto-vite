@@ -4,6 +4,6 @@ button {
   background-color: var(--color-primary);
   border: 2px solid  var(--color-secondary);
   margin: .5rem;
-  font-size: 1rem;
+  font-size: .8rem;
   padding: .5rem;
 }

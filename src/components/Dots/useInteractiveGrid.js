@@ -1,9 +1,19 @@
-import { useState, useCallback } from 'react';
-import { useRandomGridUpdates } from './useRandomGridUpdates'; // Make sure to import the new hook
+import { useState, useCallback, useRef } from 'react';
+import { useRandomGridUpdates } from './useRandomGridUpdates';
 
 export const useInteractiveGrid = (initialValue, width, height, updateInterval) => {
   const [grid, setGrid] = useState(Array.from({ length: height }, () => Array(width).fill(initialValue)));
   const [isMouseDown, setIsMouseDown] = useState(false);
+  const gridRef = useRef(null); // Reference to the grid container for touch coordinate calculations
+
+  const getCellFromEvent = (e) => {
+    const bounds = gridRef.current.getBoundingClientRect();
+    const x = (e.clientX || e.touches[0].clientX) - bounds.left;
+    const y = (e.clientY || e.touches[0].clientY) - bounds.top;
+    const colIndex = Math.floor(x / (bounds.width / width));
+    const rowIndex = Math.floor(y / (bounds.height / height));
+    return { rowIndex, colIndex };
+  };
 
   const updateCell = useCallback((rowIndex, colIndex, newValue) => {
     setGrid(currentGrid => {
@@ -13,24 +23,25 @@ export const useInteractiveGrid = (initialValue, width, height, updateInterval) 
     });
   }, []);
 
-  const handleMouseDown = useCallback((rowIndex, colIndex) => {
+  const handleStart = useCallback((e) => {
+    e.preventDefault(); // Prevents default behavior like scrolling on touch devices
     setIsMouseDown(true);
+    const { rowIndex, colIndex } = getCellFromEvent(e);
     updateCell(rowIndex, colIndex, '0');
   }, [updateCell]);
 
-  const handleMouseEnter = useCallback((rowIndex, colIndex) => {
-    if (isMouseDown) {
-      updateCell(rowIndex, colIndex, '0');
-    }
+  const handleMove = useCallback((e) => {
+    if (!isMouseDown) return;
+    e.preventDefault();
+    const { rowIndex, colIndex } = getCellFromEvent(e);
+    updateCell(rowIndex, colIndex, '0');
   }, [isMouseDown, updateCell]);
 
-  const handleMouseUp = useCallback(() => {
+  const handleEnd = useCallback(() => {
     setIsMouseDown(false);
   }, []);
 
-  // Use the custom hook for random updates
-  const symbols = [initialValue, '-', '.', '*', ')'];
-  useRandomGridUpdates(grid, setGrid, updateInterval, symbols);
+  useRandomGridUpdates(grid, setGrid, updateInterval, [initialValue, '-', '.', '*', ')']);
 
-  return { grid, handleMouseDown, handleMouseEnter, handleMouseUp };
+  return { grid, handleStart, handleMove, handleEnd, gridRef };
 };

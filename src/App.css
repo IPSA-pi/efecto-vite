@@ -47,6 +47,8 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+  position: relative;
+  z-index: 2;
 }
 
 ::-webkit-scrollbar {

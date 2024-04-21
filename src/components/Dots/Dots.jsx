@@ -1,31 +1,38 @@
-import { useInteractiveGrid } from './useInteractiveGrid'; // Ensure it is correctly imported
+import { useInteractiveGrid } from './useInteractiveGrid';
 
 const Dots = () => {
   const consoleWidth = Math.floor(window.innerWidth / 30);
   const consoleHeight = Math.floor(window.innerHeight / 30);
   const initialGridValue = "'";
-  const updateInterval = 125; // Time in milliseconds for random updates
+  const updateInterval = 125;
 
-  const { grid, handleMouseDown, handleMouseEnter, handleMouseUp } = useInteractiveGrid(initialGridValue, consoleWidth, consoleHeight, updateInterval);
+  const { grid, handleStart, handleMove, handleEnd, gridRef } = useInteractiveGrid(initialGridValue, consoleWidth, consoleHeight, updateInterval);
 
   const style = {
     fontFamily: 'monospace',
     fontSize: '2rem',
     whiteSpace: 'pre',
     userSelect: 'none',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    position: 'relative',
+    zIndex: 2,
   };
 
   return (
-    <div style={style} onMouseUp={handleMouseUp}>
+    <div
+      ref={gridRef}
+      style={style}
+      onMouseDown={handleStart}
+      onMouseMove={handleMove}
+      onMouseUp={handleEnd}
+      onTouchStart={handleStart}
+      onTouchMove={handleMove}
+      onTouchEnd={handleEnd}
+    >
       {grid.map((row, rowIndex) => (
         <div key={rowIndex}>
           {row.map((cell, colIndex) => (
-            <span
-              key={`${rowIndex}-${colIndex}`}
-              onMouseDown={() => handleMouseDown(rowIndex, colIndex)}
-              onMouseEnter={() => handleMouseEnter(rowIndex, colIndex)}
-            >
+            <span key={`${rowIndex}-${colIndex}`}>
               {cell + ' '}
             </span>
           ))}

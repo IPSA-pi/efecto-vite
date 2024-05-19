@@ -19,10 +19,13 @@
   
 .cero {
   background-color: var(--color-secondary);
+  opacity: .98;
 }
 
 .uno {
-  background-color: var(--color-primary);
+  /* background-color: var(--color-primary); */
+  background-color: transparent;
+
 }
 
 @media (orientation: portrait) {

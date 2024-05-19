@@ -4,7 +4,7 @@
   margin: auto;
   color: white;
   text-align: center;
-  filter: blur(15px);
+  filter: blur(5px);
   margin-top: 2rem;
 }
 

@@ -4,7 +4,7 @@ const Dots = () => {
   const consoleWidth = Math.floor(window.innerWidth / 30);
   const consoleHeight = Math.floor(window.innerHeight / 30);
   const initialGridValue = "'";
-  const updateInterval = 125; // Time in milliseconds for random updates
+  const updateInterval = 12; // Time in milliseconds for random updates
 
   const { grid, handleMouseDown, handleMouseEnter, handleMouseUp } = useInteractiveGrid(initialGridValue, consoleWidth, consoleHeight, updateInterval);
 
@@ -13,7 +13,11 @@ const Dots = () => {
     fontSize: '2rem',
     whiteSpace: 'pre',
     userSelect: 'none',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    position: 'absolute',
+    zIndex: '-100',
+    width: '100%',
+    overflow: 'hidden'
   };
 
   return (

@@ -8,13 +8,14 @@ import {
 
 // CONTEXT
 import { useState, useContext} from 'react';
-import {useStrobeTheme} from './hooks/useStrobeTheme';
 import {ThemeContext} from './contexts/ThemeContext';
 
 // COMPONENTS
 import RouterWrapper from './components/RouterWrapper'
 import Login from './components/Login/Login'
 import Button from './components/UI/Button';
+import Dots from './components/Dots/Dots';
+
 
 // STYLES
 import './App.css'
@@ -23,7 +24,6 @@ import './styles/themes.css'
 
 function App() {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const [isStrobing, toggleStrobe] = useStrobeTheme(); 
   const [ navbarVisible, setNavbarVisible] = useState(true);
   const toggleNavbar = () => setNavbarVisible(!navbarVisible);
   
@@ -31,9 +31,10 @@ function App() {
     <Router>
       <header>
         <Button text={theme === 'dark' ? '🌒︎' : '🌖︎'} onClick={toggleTheme} />
-        {/* <Button text={isStrobing ? 'Stop Strobe' : 'Start Strobe'} onClick={toggleStrobe} /> */}
         <Login />
       </header>
+
+      <Dots />
       
       <RouterWrapper />
       

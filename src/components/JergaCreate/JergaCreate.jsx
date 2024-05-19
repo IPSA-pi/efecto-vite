@@ -14,16 +14,18 @@ function CreateJerga() {
   return(
     <>
       <div className="jerga-container">
-        <label htmlFor="userHilo">Crea tu propia jerga:</label>
-        <textarea
-          name="userHilo" 
-          id="userHilo" 
-          // cols="16" 
-          rows="1" 
-          value={hilo}
-          onChange={handleHiloChange}
-          maxLength='12'
-        />
+        <form name="jergaSubmit" method="POST" data-netlify="true">
+          <textarea
+            name="userHilo" 
+            id="userHilo" 
+            // cols="16" 
+            rows="1" 
+            value={hilo}
+            onChange={handleHiloChange}
+            maxLength='12'
+          />
+          <button type="submit">Send</button>
+        </form>
         <JergaDisplay hilo={hilo} slice='0'/>
       </div>
 
